@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckutqeun0d5da"]
+
+[ext_resource type="Script" path="res://SimpMove.gd" id="1_xo11q"]
+[ext_resource type="Texture2D" uid="uid://bbklr6oshno6r" path="res://icon.svg" id="2_85i0q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qg74d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4k802"]
+
+[node name="Ball" type="RigidBody3D"]
+mass = 10.0
+script = ExtResource("1_xo11q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qg74d")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4k802")
+skeleton = NodePath("../..")
+
+[node name="Decal" type="Decal" parent="."]
+size = Vector3(1, 2, 2)
+texture_albedo = ExtResource("2_85i0q")
+
+[node name="CameraRig" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.69052, 2.07394)
+current = true

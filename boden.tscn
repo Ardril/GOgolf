@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bai7xby2ej6yi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qovl"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iaq7f"]
+albedo_color = Color(0.309804, 0.47451, 0.258824, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hf14m"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7qovl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_iaq7f")
+mesh = SubResource("PlaneMesh_hf14m")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.772072, 0)
